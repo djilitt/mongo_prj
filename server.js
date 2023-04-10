@@ -54,9 +54,7 @@ app.post('/insertj', (req, res) => {
     
 })
 
-app.get('/adminc', (req, res) => {
-    res.render('adminclaim'); 
-})
+
 
 app.get('/admincm', (req, res) => {
     res.render('adminclainm'); 
