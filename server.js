@@ -94,6 +94,30 @@ app.post('/insert', async (req, res) => {
     }
     });
     
+
+    app.get('/adminclaim', async (req, res) => {
+        try {
+            const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+         
+          // Select the database and collection
+          const db = client.db('mongodb_prj');
+          const collection = db.collection('Reclamation');
+      
+          // Find all documents in the collection
+          const result = await collection.find({}).toArray();
+      
+          // Send the result as a JSON response
+        //   res.json(result);
+
+          res.render('adminclaim', { data: result });
+      
+        } catch (err) {
+          console.log(err);
+          res.status(500).send('Internal server error');
+        } 
+      }); // Add a closing brace here
+      
     
     
     
